@@ -4,7 +4,7 @@ class CreateBanners < ActiveRecord::Migration[6.1]
       t.string :b_title
       t.string :b_image
       t.string :b_link
-      t.string :b_hashtags
+      t.string :b_hashtag
       t.text :b_body
 
       t.timestamps

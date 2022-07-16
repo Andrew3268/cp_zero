@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :is_price
       t.integer :was_price
       t.integer :pct
-      t.string :hashtags
+      t.string :hashtag
       t.integer :ratings
       t.integer :reviews
 
