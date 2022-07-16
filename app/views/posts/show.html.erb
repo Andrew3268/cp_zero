@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>타이틀:</strong><%= @post.title %></p>
+<p><strong>이미지:</strong><img src="<%= @post.image %>"></p>
+<p><strong>링크:</strong><%= @post.link %></p>
+<p><strong>현재가:</strong><%= number_to_currency(@post.is_price, locale: :kr) %>원</p>
+<p><strong>할인전:</strong><%= number_to_currency(@post.was_price, locale: :kr) %>원</p>
+<p><strong>해시태그:</strong><%= @post.hashtags %></p>
+<p><strong>평점:</strong><%= @post.ratings %></p>
+<p><strong>리뷰:</strong><%= @post.reviews %></p>
+
+
+
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
