@@ -5,7 +5,7 @@
 <p><strong>링크:</strong><%= @post.link %></p>
 <p><strong>현재가:</strong><%= number_to_currency(@post.is_price, locale: :kr) %>원</p>
 <p><strong>할인전:</strong><%= number_to_currency(@post.was_price, locale: :kr) %>원</p>
-<p><strong>해시태그:</strong><%= @post.hashtags %></p>
+<p><strong>해시태그:</strong><%= @post.hashtag %></p>
 <p><strong>평점:</strong><%= @post.ratings %></p>
 <p><strong>리뷰:</strong><%= @post.reviews %></p>
 

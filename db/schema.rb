@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_07_16_082228) do
     t.string "b_title"
     t.string "b_image"
     t.string "b_link"
-    t.string "b_hashtags"
+    t.string "b_hashtag"
     t.text "b_body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_07_16_082228) do
     t.integer "is_price"
     t.integer "was_price"
     t.integer "pct"
-    t.string "hashtags"
+    t.string "hashtag"
     t.integer "ratings"
     t.integer "reviews"
     t.text "body"
