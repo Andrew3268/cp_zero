@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   # root 'home#index'
-  root 'posts#index'
-  # root 'banners#index'
+  # root 'posts#index'
+  root 'banners#index'
 
   #hashtag
   get '/posts/hashtag/:name', to:'posts#hashtags'  
+  get '/banners/b_hashtag/:name', to:'banners#hashtags'  
 
 
   # get 'home/index'

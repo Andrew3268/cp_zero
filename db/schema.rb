@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_17_055745) do
+ActiveRecord::Schema.define(version: 2022_07_17_061631) do
 
   create_table "banners", force: :cascade do |t|
     t.string "b_title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2022_07_17_055745) do
     t.text "b_body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banners_tags", force: :cascade do |t|
+    t.integer "banner_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["banner_id"], name: "index_banners_tags_on_banner_id"
+    t.index ["tag_id"], name: "index_banners_tags_on_tag_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -53,6 +62,8 @@ ActiveRecord::Schema.define(version: 2022_07_17_055745) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "banners_tags", "banners"
+  add_foreign_key "banners_tags", "tags"
   add_foreign_key "posts_tags", "posts"
   add_foreign_key "posts_tags", "tags"
 end

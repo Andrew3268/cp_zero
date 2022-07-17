@@ -10,6 +10,11 @@ class BannersController < ApplicationController
   def show
   end
 
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @banners = tag.banners
+  end
+
   # GET /banners/new
   def new
     @banner = Banner.new
@@ -65,6 +70,8 @@ class BannersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def banner_params
-      params.require(:banner).permit(:b_title, :b_body)
+      params.require(:banner).permit(:b_title, :b_body, :b_image, :b_link, :b_hashtag)
     end
 end
+
+
