@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # root 'home#index'
+  root 'home#index'
   # root 'posts#index'
-  root 'banners#index'
+  # root 'banners#index'
 
   #hashtag
   get '/posts/hashtag/:name', to:'posts#hashtags'  

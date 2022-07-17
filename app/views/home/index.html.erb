@@ -1,2 +1,42 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+Banner
+
+
+ <% @latest_banners.each do |banner| %>
+  <p>
+    <%= banner.b_title %>
+    <%= render_with_bhashtags(banner.b_hashtag) %>
+    <%= link_to 'Show', banner %>
+    <%= link_to 'Edit', edit_banner_path(banner) %>
+    <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+  <hr />
+ <% end %>
+
+ <% @except_first_banners.each do |banner| %>
+  <p>
+    <%= banner.b_title %>
+    <%= render_with_bhashtags(banner.b_hashtag) %>
+    <%= link_to 'Show', banner %>
+    <%= link_to 'Edit', edit_banner_path(banner) %>
+    <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+ <% end %>
+
+
+<br><br><br><br>
+
+Post
+
+<% @posts.each do |post| %>
+  <tr>
+    <%= post.title %>
+    <%= render_with_hashtags(post.hashtag) %>
+    <%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </tr>
+<% end %>
+
