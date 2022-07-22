@@ -1,4 +1,6 @@
 class Banner < ApplicationRecord
+  acts_as_punchable
+
   has_and_belongs_to_many :tags
 
   after_create do

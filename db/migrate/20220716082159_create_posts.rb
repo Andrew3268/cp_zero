@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :image
       t.string :link
+      t.string :categories
       t.integer :is_price
       t.integer :was_price
       t.integer :pct

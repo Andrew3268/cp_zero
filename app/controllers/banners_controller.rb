@@ -3,7 +3,7 @@ class BannersController < ApplicationController
 
   # GET /banners or /banners.json
   def index
-    @banners = Banner.all.order("created_at DESC")
+    @pagy, @banners = pagy(Banner.all.order("created_at DESC"), items: 100)
   end
 
   # GET /banners/1 or /banners/1.json
@@ -12,7 +12,7 @@ class BannersController < ApplicationController
 
   def hashtags
     tag = Tag.find_by(name: params[:name])
-    @banners = tag.banners
+    @pagy, @banners = pagy(tag.banners, items: 100)
   end
 
   # GET /banners/new
@@ -70,7 +70,7 @@ class BannersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def banner_params
-      params.require(:banner).permit(:b_title, :b_body, :b_image, :b_link, :b_hashtag)
+      params.require(:banner).permit(:b_title, :b_body, :b_image, :b_link, :b_hashtag, :b_categories, :b_sub_title)
     end
 end
 

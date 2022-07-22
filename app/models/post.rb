@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  acts_as_punchable
+
   has_and_belongs_to_many :tags
 
   after_create do
@@ -19,5 +21,11 @@ class Post < ApplicationRecord
         post.tags << tag
     end
   end
+
+  # def self.daily_picks
+  #   Rails.cache.fetch('post_daily_picks', expires_in: 1.day) do
+  #     self.all.shuffle.limit(2)
+  #   end
+  # end
   
 end

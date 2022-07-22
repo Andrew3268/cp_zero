@@ -1,27 +1,184 @@
-<h1>Posts</h1>
+<!-- 이 페이지는 비공개로 해야함 -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="wrapper">
+  <div class="wrap">
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= render_with_hashtags(post.hashtag) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="content_box">
+      <div class="left_side">
 
-<br>
+        <div class="left_ctn">
+          <p>밝은 내는 되려니와, 동산에는 인생의 때문이다. 사람은 시들어 물방아 하여도 심장의 듣는다. 품고 뭇 이상 이것은 인간이 열매를 위하여 것이다. 밥을 구하기 보는 충분히 얼마나 찬미를 아니한 이것이다. 평화스러운 꽃이 가치를 그들을 불어 품고 이상 힘있다. 무엇을 꽃이 찬미를 이것이다.</p>
+        </div>
 
-<%= link_to 'New Post', new_post_path %>
+      </div>
+
+      <div class="right_side">
+        <div class="right_ctn">
+          <div class="post_index_box">
+
+            <div class="multi_filter_box row">
+
+              <!-- <h1 class="section__title">In Ground</h1> -->
+              <p><strong>Select the appropriate optical cable:</strong></p>
+              <ul class="category__nav">
+
+                <div class="catgory_box">
+                  <p>카테고리</p>
+                  <li><a data-target="패션" href="#">패션</a></li>
+                  <li><a data-target="뷰티" href="#">뷰티</a></li>
+                  <li><a data-target="식품" href="#">식품</a></li>
+                  <li><a data-target="주방용품" href="#">주방용품</a></li>
+                  <li><a data-target="생활용품" href="#">생활용품</a></li>  
+                  <li><a data-target="홈인테리어" href="#">홈인테리어</a></li>  
+                  <li><a data-target="가전디지털" href="#">가전디지털</a></li>  
+                </div>
+
+                <br><br><br><br>
+                <div class="catgory_box">
+                  <p>가격</p>
+                  <li><a data-target="10" href="#">1만원 이하</a></li>
+                  <li><a data-target="12" href="#">1만원 ~ 2만원</a></li>
+                  <li><a data-target="23" href="#">2만원 ~ 3만원</a></li>
+                  <li><a data-target="34" href="#">3만원 ~ 4만원</a></li>
+                  <li><a data-target="45" href="#">4만원 ~ 5만원</a></li>
+                  <li><a data-target="56" href="#">5만원 ~ 6만원</a></li>
+                  <li><a data-target="67" href="#">6만원 ~ 7만원</a></li>
+                  <li><a data-target="78" href="#">7만원 ~ 8만원</a></li>
+                  <li><a data-target="89" href="#">8만원 ~ 9만원</a></li>
+                  <li><a data-target="90" href="#">9만원 ~ 10만원</a></li>
+                  <li><a data-target="100" href="#">10만원 이상</a></li>
+
+                </div>
+
+                <br><br><br><br><br><br><br>
+                <div class="catgory_box">
+                  <p>할인율</p>
+                  <li><a data-target="10" href="#">10%</a></li>
+                  <li><a data-target="20" href="#">20%</a></li>
+                  <li><a data-target="30" href="#">30%</a></li>
+                  <li><a data-target="40" href="#">40%</a></li>
+                  <li><a data-target="50" href="#">50%</a></li>  
+                  <li><a data-target="60" href="#">60%</a></li>  
+                  <li><a data-target="70" href="#">70%</a></li>  
+                  <li><a data-target="80" href="#">80%</a></li>
+                  <li><a data-target="90" href="#">90%</a></li>     
+                </div>
+
+                <br><br><br><br>
+                <div class="catgory_box">
+                  <p>평점</p>
+                  <li><a data-target="1" href="#">1점 이상</a></li>
+                  <li><a data-target="2" href="#">2점 이상</a></li>
+                  <li><a data-target="3" href="#">3점 이상</a></li>
+                  <li><a data-target="4" href="#">4점 이상</a></li>
+                  <li><a data-target="5" href="#">5점</a></li>  
+                  
+                </div>
+
+
+
+
+                <!-- <li><a data-target="metal" href="#">Metal</a></li>
+                <li><a data-target="standart" href="#">Standart</a></li>
+                <li><a data-target="reinforced" href="#">Reinforced</a></li>
+                <li><a data-target="superlight" href="#">Superlight</a></li>
+                <li><a data-target="special" href="#">Special</a></li>
+                <li><a data-target="dielectric" href="#">Dielectric</a></li> -->
+              </ul>        
+
+              <div class="multi_filter_ctn category-flex">
+
+
+                  <% @posts.each do |post| %>
+                    <div class="cableItem clearfix" data-target="<%= post.categories %>, <%= post.pct %>, <%= post.ratings %>">
+
+                      <div class="post_card">
+                        <div class="post_img_box">
+                          <img src="<%= post.image %>" title="<%= post.title %>" alt="<%= post.title %>">
+                        </div>
+
+                          <div class="post_inner">
+                            <p><%= post.title %></p> 
+                            <p><%= post.categories %></p>
+                            <p><%= post.ratings %>점</p>
+                            <p><%= render_with_hashtags(post.hashtag) %></p>
+
+                            <div class="pricing">
+                              <p class="was_price"><%= number_to_currency(post.was_price, locale: :kr) %>원</p>
+                              <p class="is_price"><%= number_to_currency(post.is_price, locale: :kr) %>원</p>
+                              <p class="pct"><%= number_to_percentage(post.pct, precision: 0) %></p>
+                            </div>
+
+                            <div class="admin_panner">
+                              <%= link_to 'Show', post %>
+                              <%= link_to 'Edit', edit_post_path(post) %>
+                              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              hit: <%= post.hits %>
+                            </div>
+                          </div>
+                      </div><!-- End of post_card -->
+
+                    </div>
+                  <% end %>
+
+                 <!--  <a href="#" data-target="metal, standart, reinforced" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/dps2.png)"></div>
+                      <p class="cableItem__title">Standard reinforced metal</p>
+                  </a>
+                  <a href="#" data-target="metal, superlight" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/tos.png)"></div>
+                      <p class="cableItem__title">Superlight metal</p>
+                  </a>
+                  <a href="#" data-target="metal, superlight, reinforced" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/tos2.png)"></div>
+                      <p class="cableItem__title">Superlight reinforced metal</p>
+                  </a>
+                  <a href="#" data-target="metal, special" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/tsos.png)"></div>
+                      <p class="cableItem__title">Special metal</p>
+                  </a>
+                  <a href="#" data-target="metal, special" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/das.png)"></div>
+                      <p class="cableItem__title">Special metal</p>
+                  </a>
+                  <a href="#" data-target="metal, special, reinforced" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/das2.png)"></div>
+                      <p class="cableItem__title">Special reinforced metal</p>
+                  </a>
+                  <a href="#" data-target="dielectric, standart" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/dpd.png)"></div>
+                      <p class="cableItem__title">Standart dielectric</p>
+                  </a>
+                  <a href="#" data-target="dielectric, standart, reinforced" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/dpd2.png)"></div>
+                      <p class="cableItem__title">Standard reinforced dielectric</p>
+                  </a>
+                  <a href="#" data-target="dielectric, superlight" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/01/tod.png)"></div>
+                      <p class="cableItem__title">Superlight dielectric</p>
+                  </a>
+                  <a href="#" data-target="dielectric, superlight, reinforced" class="cableItem">
+                      <div class="cableItem__img" style="background-image: url(http://new.incab.ru/wp-content/uploads/2018/02/tod2.png)"></div>
+                      <p class="cableItem__title">Superlight reinforced dielectric</p>
+                  </a> -->
+
+              </div><!-- multi_filter_ctn -->
+            </div><!-- multi_filter_box -->
+          </div><!-- post_index_box -->
+
+
+        </div><!-- End of right_ctn -->
+        <%= raw pagy_nav(@pagy) %>
+      </div><!-- End of left_side -->
+
+
+    </div><!-- End of content_box -->
+
+  </div>
+</div>
+
+
+<%= javascript_pack_tag 'post_multi_search' %>
+
+
+

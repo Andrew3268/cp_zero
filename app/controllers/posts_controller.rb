@@ -3,16 +3,21 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order("created_at DESC")
+    @pagy, @posts = pagy(Post.all.order("created_at DESC"), items: 100)
+    # @posts_random_over_half = Post.order("RANDOM()").limit(10)
+    # @most_hit = Post.most_hit(1.day.ago, 10)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post.punch(request)
+
   end
 
   def hashtags
     tag = Tag.find_by(name: params[:name])
-    @posts = tag.posts
+    @pagy, @posts = pagy(tag.posts, itmes: 100)
+
   end
 
   # GET /posts/new
@@ -70,7 +75,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :image, :link, :is_price, :was_price, :pct, :hashtag, :ratings, :reviews)
+      params.require(:post).permit(:title, :body, :image, :link, :is_price, :was_price, :pct, :hashtag, :ratings, :reviews, :categories)
     end
 end
 

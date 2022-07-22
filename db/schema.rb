@@ -10,21 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_17_061631) do
+ActiveRecord::Schema.define(version: 2022_07_17_064334) do
 
   create_table "banners", force: :cascade do |t|
     t.string "b_title"
+    t.string "b_sub_title"
     t.string "b_image"
     t.string "b_link"
+    t.string "b_categories"
     t.string "b_hashtag"
     t.text "b_body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "banners_tags", force: :cascade do |t|
-    t.integer "banner_id", null: false
-    t.integer "tag_id", null: false
+  create_table "banners_tags", id: false, force: :cascade do |t|
+    t.integer "banner_id"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["banner_id"], name: "index_banners_tags_on_banner_id"
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_07_17_061631) do
     t.string "title"
     t.string "image"
     t.string "link"
+    t.string "categories"
     t.integer "is_price"
     t.integer "was_price"
     t.integer "pct"
@@ -54,6 +57,17 @@ ActiveRecord::Schema.define(version: 2022_07_17_061631) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_posts_tags_on_post_id"
     t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
+  end
+
+  create_table "punches", force: :cascade do |t|
+    t.integer "punchable_id", null: false
+    t.string "punchable_type", limit: 20, null: false
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.datetime "average_time", null: false
+    t.integer "hits", default: 1, null: false
+    t.index ["average_time"], name: "index_punches_on_average_time"
+    t.index ["punchable_type", "punchable_id"], name: "punchable_index"
   end
 
   create_table "tags", force: :cascade do |t|

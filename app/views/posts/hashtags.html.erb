@@ -1,27 +1,34 @@
-<h1>Posts</h1>
+<!-- 이 페이지는 비공개로 해야함 -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="wrapper">
+  <div class="wrap">
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= render_with_hashtags(post.hashtag) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="content_box">
+      <div class="left_side">
 
-<br>
+        <div class="left_ctn">
+          <p>밝은 내는 되려니와, 동산에는 인생의 때문이다. 사람은 시들어 물방아 하여도 심장의 듣는다. 품고 뭇 이상 이것은 인간이 열매를 위하여 것이다. 밥을 구하기 보는 충분히 얼마나 찬미를 아니한 이것이다. 평화스러운 꽃이 가치를 그들을 불어 품고 이상 힘있다. 무엇을 꽃이 찬미를 이것이다.</p>
+        </div>
 
-<%= link_to 'New Post', new_post_path %>
+      </div>
+
+
+      <div class="right_side">
+        <div class="right_ctn">
+         
+          <%= render 'posts/comparison' %>
+
+
+        </div><!-- End of right_ctn -->
+
+
+        <%= raw pagy_nav(@pagy) %>
+      </div><!-- End of left_side -->
+
+
+    </div><!-- End of content_box -->
+
+  </div>
+</div>
+
+
