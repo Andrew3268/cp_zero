@@ -63,41 +63,56 @@
 
           </div><!-- index_banner -->
 
+          <div class="top_views clearfix">
+            <h2>이번 주 인기 세일</h2>
 
-          <br><br><br><br>
-
-          가장많이 본 게시물 순으로
-
-          <% @most_hit.each_with_index do |post, i| %>          
-            <p>
-              <%= i + 1 %>.<%= post.title %>
-              <%= render_with_hashtags(post.hashtag) %>
-              <%= link_to 'Show', post %>
-              <%= link_to 'Edit', edit_post_path(post) %>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <%= post.hits %>
-            </p>
-          <% end %>
-
-          <br><br><br><br>
-          50% 이상만
-
-          <% @posts_random_over_half.each do |post| %>
-            <% if post.pct.present? %> 
-              <% if post.pct >= 50 %>
-                <p>
-                  <%= post.title %>
-                  <%= post.pct %>
-                  <%= render_with_hashtags(post.hashtag) %>
-                  <%= link_to 'Show', post %>
-                  <%= link_to 'Edit', edit_post_path(post) %>
-                  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <%= post.hits %>
+            <% @most_hit.each_with_index do |post, i| %>          
+              <div class="top_view_box clearfix">
+                  <div class="img_box">
+                    <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/48e2/9ae7398e4c6824e0858e7a68ececd8885e33b0cfe1a346a2123863c1b75f.jpg" alt="<%= post.title %>">
+                    <span class="ranked_number"><%= i + 1 %></span>
+                  </div>
+                  <div class="top_view_inner comm_inner">
+                    <p class="title"><%= post.title %></p>
+                    <div class="pricing">
+                      <p class="was_price"><%= number_to_currency(post.was_price, locale: :kr) %>원</p>
+                      <p class="is_price"><%= number_to_currency(post.is_price, locale: :kr) %>원</p>
+                      <p class="pct"><%= number_to_percentage(post.pct, precision: 0) %></p>
+                    </div>
+                    <!-- <p><%= render_with_hashtags(post.hashtag) %></p> -->
+                    <div class="admin_panner">
+                      <%= link_to 'Show', post %>
+                      <%= link_to 'Edit', edit_post_path(post) %>
+                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      views: <%= post.hits %>
+                    </div>
+                  </div>
                 </p>
-              <% end %>
+              </div>
             <% end %>
-          <% end %>
+          </div>
 
+          <br><br><br><br>
+          
+          <div class="upper_half clearfix">
+              50% 이상만
+
+              <% @posts_random_over_half.each do |post| %>
+                <% if post.pct.present? %> 
+                  <% if post.pct >= 50 %>
+                    <p>
+                      <%= post.title %>
+                      <%= post.pct %>
+                      <%= render_with_hashtags(post.hashtag) %>
+                      <%= link_to 'Show', post %>
+                      <%= link_to 'Edit', edit_post_path(post) %>
+                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= post.hits %>
+                    </p>
+                  <% end %>
+                <% end %>
+              <% end %>
+          </div>
 
           <br><br><br><br>
 
