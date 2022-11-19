@@ -1,24 +1,77 @@
+<div class="hotdeal_form">
+  <%= simple_form_for(@post) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <div class="basic_info">
+        <%= f.input :title %>
+        <%= f.input :image %>
+        <%= f.input :link %>
+        <%= f.input :categories %>
+        <%= f.input :rocket %>
+      </div>
+      <div class="pricing clearfix">
+        <%= f.input :is_price %>
+        <%= f.input :was_price %>
+        <%= f.input :pct %>
+        <%= f.input :hashtag %>
+        <%= f.input :ratings %>
+        <%= f.input :ratings_codes %>
+        <%= f.input :reviews %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :image %>
-    <%= f.input :link %>
-    <%= f.input :categories %>
-    <%= f.input :is_price %>
-    <%= f.input :was_price %>
-    <%= f.input :pct %>
-    <%= f.input :hashtag %>
-    <%= f.input :ratings %>
-    <%= f.input :reviews %>
+      <div class="pricing clearfix doughnut">
+        <%= f.input :info_01, label: "info_01" %>
+        <%= f.input :info_02, label: "info_02" %>
+        <%= f.input :info_03, label: "info_03" %>
+        <%= f.input :info_04, label: "info_04" %>
+        <%= f.input :info_05, label: "info_05" %>
+      </div>
 
-    <%= f.input :body %>
-  </div>
+      <div class="pricing clearfix doughnut">
+        <%= f.input :doughnut_01, label: "최고" %>
+        <%= f.input :doughnut_02, label: "좋음" %>
+        <%= f.input :doughnut_03, label: "보통" %>
+        <%= f.input :doughnut_04, label: "별로" %>
+        <%= f.input :doughnut_05, label: "나쁨" %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+      <div class="pricing clearfix eva">
+        <%= f.input :eva_title_01 %>
+        <%= f.input :eva_10 %>
+        <%= f.input :eva_11 %>
+        <%= f.input :eva_12 %>
+      </div>
+
+      <div class="pricing clearfix eva">
+        <%= f.input :eva_title_02 %>
+        <%= f.input :eva_20 %>
+        <%= f.input :eva_21 %>
+        <%= f.input :eva_22 %>
+      </div>
+
+      <div class="pricing clearfix eva">
+        <%= f.input :eva_title_03 %>
+        <%= f.input :eva_30 %>
+        <%= f.input :eva_31 %>
+        <%= f.input :eva_32 %>
+      </div>
+
+      <div class="pricing clearfix eva">
+        <%= f.input :eva_title_04 %>
+        <%= f.input :eva_40 %>
+        <%= f.input :eva_41 %>
+        <%= f.input :eva_42 %>
+      </div>
+
+      <!-- <%= f.input :body %> -->
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+
+

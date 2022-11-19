@@ -1,22 +1,50 @@
+
+
+/*** Price of Popular Post   ***/
+.comm_inner .title{font-size:13px;word-break: keep-all;line-height:1.4;height:2.8em;overflow:hidden;display:-webkit-box;display:-ms-flexbox;vertical-align:top;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
+.comm_inner .pricing{margin:5px 0;}
+.comm_inner .pricing p{display:inline-block;color:#3d3d3d;margin-right:5px;}
+.comm_inner .pricing .was_price{font-size:13px;text-decoration:line-through;}
+.comm_inner .pricing .is_price{}
+.comm_inner .pricing .pct{}
+
 .content_box{}
-.content_box .right_side{padding:0 10px;}
+.content_box .right_side{}
+.content_box .right_side .first_banner{}
+.content_box .right_side .first_banner .gallery-item{height:300px;margin-bottom:85px;}
+.content_box .right_side .first_banner .gallery-item-inner .img_box{height:100%;}
+
 .index_banner{margin-bottom:50px;}
-.main_banner{margin:20px 0;}
-.main_banner p{font-size:17px;margin-bottom:7px;}
-.main_banner img{width:100%;height:200px;object-fit:cover;border-radius:20px;border:1px solid #ccc;}
-.sub_banner{}
-.sub_banner .sub_banner_card{margin-bottom:10px;border:1px solid #ccc;border-radius:20px;padding:10px;}
-.sub_banner .sub_banner_card .img_box{float:left;width:37%;margin:1%;}
-.sub_banner .sub_banner_card img{width:100%;height:120px;object-fit:cover;border-radius:20px;border:1px solid #ccc;}
-.sub_banner .sub_banner_card .inner{float:left;width:58%;margin:1%;position:relative;height:120px;}
-.sub_banner .sub_banner_card .inner .admin_panner{font-size:10px;}
-.sub_banner .sub_banner_card .inner .inner_box{position:absolute;left:0;top:50%;transform:translate(0, -50%);}
-.sub_banner .sub_banner_card .inner p{font-size:15px;}
-.sub_banner .sub_banner_card .inner em{font-size:13px;}
-.top_views{}
-.top_views .top_view_box{float:left;width:48%;margin:1% 1% 15px 1%;} 
-.top_views .top_view_box .img_box{width:100%;height:150px;position:relative;}
-.top_views .top_view_box .img_box .ranked_number{position:absolute;top:0;left:0;background:#000;color:#fff;padding:7px 10px;border-radius:5px;}
-.top_views .top_view_box .img_box img{width:80%;height:80%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);object-fit:contain;}
-.top_views .top_view_box .top_view_inner{padding:10px;}
-.top_views .top_view_box .top_view_inner p{}
+.banner_wrap{width:96%;margin:0 auto;padding:20px;border-radius:20px;box-shadow:rgba(149, 157, 165, 0.3) 0px 8px 15px;}
+.main_banner{margin:0 0 30px 0;}
+.main_banner a{color:#fff;}
+.main_banner .banner_box{height:280px;position:relative;}
+.main_banner .banner_box img{width:100%;height:100%;object-fit:cover;border-radius:20px;border:1px solid #ccc;filter:grayscale(0.6);}
+.main_banner .banner_box .inner{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:85%;text-align:center;color:#fff;background-color:rgba(0,0,0,0.6);padding:15px;border-radius:20px;border:2px solid;}
+.main_banner .banner_box .inner p{font-size:17px;margin-bottom:7px;}
+.main_banner .banner_box .inner span{font-size:15px;}
+.main_banner .banner_box .inner .admin_panner a{color:#fff;}
+
+.sub_banner{margin:20px 0;}
+.sub_banner a{color:#000;}
+.sub_banner .banner_box{height:100px;border-bottom:1px solid #ccc;}
+.sub_banner .banner_box .img_box{float:left;width:25%;height:100px;padding:0;position:relative;}
+.sub_banner .banner_box img{width:90%;height:90%;object-fit:contain;border-radius:20px;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);filter:grayscale(0.6);}
+.sub_banner .banner_box .inner_box{float:left;width:70%;margin-left:5%;height:100px;position:relative;}
+.sub_banner .banner_box .inner_box .inner{position:absolute;top:35%;left:50%;transform:translate(-50%, -50%);width:100%;}
+.sub_banner .banner_box .inner_box p{font-size:13px;}
+.sub_banner .banner_box .inner_box span{font-size:11px;color:#ccc;position:absolute;bottom:7px;}
+.sub_banner .banner_box .inner_box .admin_panner{position:absolute;right:0;bottom:-12px;font-size:10px;}
+.sub_banner .banner_box .inner_box .admin_panner a{color:#3d3d3d;position:}
+/*.sub_banner .banner_box .inner_box .admin_panner a.admin_edit{right:40px;}*/
+
+
+
+.upper_half{}
+.upper_half .upper_half_box{height:150px;padding:10px;position:relative;}
+.upper_half .upper_half_box .ctn_box{float:left;width:70%;position:relative;height:130px;}
+.upper_half .upper_half_box .inner{position:absolute;top:50%;left:0;transform:translate(0,-50%);}
+.upper_half .upper_half_box .img_box{float:left;width:28%;margin-left:2%;}
+.upper_half .upper_half_box .img_box img{width:100%;height:100%;object-fit:contain;}
+
+

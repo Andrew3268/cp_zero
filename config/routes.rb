@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   # get 'home/index'
   resources :banners
   resources :posts
+
+
+  # for hubs
+  get 'hubs/top_views'
+  get 'hubs/about_us'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

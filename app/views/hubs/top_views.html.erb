@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <div class="wrap">
+
+    <div class="content_box">
+      <div class="left_side">
+        <div class="left_ctn">
+          <p>밝은 내는 되려니와, 동산에는 인생의 때문이다. 사람은 시들어 물방아 하여도 심장의 듣는다. 품고 뭇 이상 이것은 인간이 열매를 위하여 것이다. 밥을 구하기 보는 충분히 얼마나 찬미를 아니한 이것이다. 평화스러운 꽃이 가치를 그들을 불어 품고 이상 힘있다. 무엇을 꽃이 찬미를 이것이다.</p>
+        </div>
+      </div>
+
+
+      <div class="right_side">
+        <div class="right_ctn">
+          
+          <div class="top_views clearfix top_view_page">
+            <a class="back_to_home" href="/"><img src="<%=asset_path 'back.png' %>"></a><h2>이번 주 인기 세일 TOP 50</h2>
+
+            <% @most_hit.each_with_index do |post, i| %>          
+              <div class="top_view_box clearfix">
+                  <div class="img_box">
+                    <%= link_to image_tag(post.image, alt: post.title, title: post.title), post %>
+                    <span class="ranked_number"><%= i + 1 %></span>
+                  </div>
+                  <div class="top_view_inner comm_inner">
+                    <p class="title"><%= post.title %></p>
+                    <div class="pricing">
+                      
+                      <p class="is_price">
+                        <!-- <em class="was_price"><%= number_to_currency(post.was_price, locale: :kr) %>원</em> -->
+                        <%= number_to_currency(post.is_price, locale: :kr) %>원
+                        <span class="pct"><%= number_to_percentage(post.pct, precision: 0) %></span>
+                      </p>
+                    </div>
+                    <!-- <p><%= render_with_hashtags(post.hashtag) %></p> -->
+                    <div class="admin_panner">
+                      <%= link_to 'Show', post %>
+                      <%= link_to 'Edit', edit_post_path(post) %>
+                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      views: <%= post.hits %>
+                    </div>
+                  </div>
+                
+              </div>
+            <% end %>
+
+          </div><!-- top_views -->
+
+        </div><!-- End of right_ctn -->
+
+      </div><!-- End of right_side -->
+    </div><!-- End of content_box -->
+
+  </div>
+</div>
+

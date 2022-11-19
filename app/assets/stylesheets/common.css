@@ -32,32 +32,53 @@ body{margin:0;padding:0;font-size:15px;color:#000;line-height:1.5;font-weight:30
   .wrap{width:auto;margin:0 3%;}
 }
 
-.content_box{width:1000px;margin:0 auto;height:100%;position:fixed;left: 50%;transform:translate(-50%, 0);}
-.content_box .left_side{float:left;width:50%;position:relative;height:100%;}
+.content_box{width:800px;margin:0 auto;height:100%;position:fixed;left: 50%;transform:translate(-50%, 0);}
+.content_box .left_side{float:left;width:40%;position:relative;height:100%;}
 .content_box .left_side .left_ctn{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
-.content_box .right_side{float:left;width:50%;height:100%;overflow-x:hidden;overflow-y:auto;border:3px solid #ccc;}
+.content_box .right_side{float:left;width:60%;height:100%;overflow-x:hidden;overflow-y:auto;border:1px solid #ccc;border-radius:20px;margin:10px 0;padding:0 10px 50px 10px;position:relative;}
 .content_box .right_side .right_ctn{overflow:hidden;}
+.content_box .right_side .right_ctn .back_to_home{position:absolute;top:58px;left:23px;opacity:0.4;}
+.content_box .right_side .right_ctn .back_to_home img{width:30px;}
+.content_box .right_side .right_ctn .where-hashtag{margin-top:40px;}
+.content_box .right_side .right_ctn .where-hashtag h2{padding:20px 0 0 50px;}
+
 
 @media screen and (max-width:640px){
   .content_box{width:100%;}
   .content_box .left_side{display:none;}
   .content_box .right_side{width:100%;}
+  .content_box .right_side{border:none;}
 }
 @media screen and (min-width:641px) and (max-width:1199px){
   .content_box{width:100%;}
 }
 
 
-/*** Post 가격  ***/
-.comm_inner .title{font-size:13px;}
-.comm_inner .pricing{margin:5px 0;}
-.comm_inner .pricing p{display:inline-block;color:#3d3d3d;margin-right:5px;}
-.comm_inner .pricing .was_price{font-size:13px;text-decoration:line-through;}
-.comm_inner .pricing .is_price{font-weight:bold;}
-.comm_inner .pricing .pct{}
+/*** Header ***/
+header{margin:40px 20px 10px 20px;}
+
+
 
 /*** 어드민 패널 ***/
 .admin_panner{font-size:13px;}
+
+
+
+/* From Page */
+.hotdeal_form{width:1200px;}
+.hotdeal_form .basic_info{width:800px;}
+.hotdeal_form input, .hotdeal_form textarea{display:block;width:100%;height:40px;margin-bottom:5px;border:1px solid #ccc;}
+.hotdeal_form textarea{height:80px;}
+.hotdeal_form trix-editor{min-height:15em;}
+.hotdeal_form label{font-size:10px;}
+.hotdeal_form .pricing div{float:left;;margin:3px;width:13%;}
+.hotdeal_form .pricing div .promo_code{width:500px;margin-right:1%;}
+.hotdeal_form .pricing div .promo_date{width:300px;}
+.hotdeal_form .eva{float:left;width:50%;}
+.hotdeal_form .form_btn input{margin-top:10px;background:#000;color:#fff;padding:15px 0;}
+
+
+
 
 
 

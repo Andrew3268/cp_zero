@@ -1,117 +1,100 @@
-<h1>Banners // <%= link_to 'New Banner', new_banner_path %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>B title</th>
-      <th>B body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="wrapper">
+  <div class="wrap">
 
-  <tbody>
-    <% @banners.each do |banner| %>
-      <tr>
-        <td><%= banner.b_title %></td>
-        <td><%= render_with_bhashtags(banner.b_hashtag) %></td>
-        <td><%= link_to 'Show', banner %></td>
-        <td><%= link_to 'Edit', edit_banner_path(banner) %></td>
-        <td><%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="content_box">
+      <div class="left_side">
 
-<br>
-
-<section class="gallery">
-  <div class="container">
-    <div class="row">
-      <div class="gallery-filter">
-        <span class="filter-item active" data-filter="all">All</span>
-        <span class="filter-item" data-filter="패션">패션</span>
-        <span class="filter-item" data-filter="뷰티">뷰티</span>
-        <span class="filter-item" data-filter="식품">식품</span>
-        <span class="filter-item" data-filter="주방용품">주방용품</span>
-        <span class="filter-item" data-filter="생활용품">생활용품</span>
-        <span class="filter-item" data-filter="홈인테리어">홈인테리어</span>
-        <span class="filter-item" data-filter="가전디지털">가전디지털</span>
-        <span class="filter-item" data-filter="스포츠">스포츠</span>
-        <span class="filter-item" data-filter="자동차용품">자동차용품</span>
-        <span class="filter-item" data-filter="취미">취미</span>
-        <span class="filter-item" data-filter="문구">문구</span>
-        <span class="filter-item" data-filter="반려동물용품">반려동물용품</span>
-        <span class="filter-item" data-filter="헬스">헬스</span>
-
-
-      </div>
-    </div>
-
-    <div class="row">
-      <!-- gallery item start -->
-      <% @banners.each do |banner| %>
-        
-          <div class="gallery-item <%= banner.b_categories %>">
-            <div class="gallery-item-inner">
-              <p><%= banner.b_title %></p>
-              <p>카테고리:<%= banner.b_categories %></p>
-              <p><%= banner.b_hashtag %></p>
-              <a href=/posts/hashtag/<%= banner.b_categories %>>
-                <img src="<%= banner.b_image %>" alt="shoe">
-              </a>
-            </div>
-          </div>
-      <% end %>
-      <!-- gallery item end -->
-
-      <!-- gallery item start -->
-      <div class="gallery-item headphone">
-        <div class="gallery-item-inner">
-          <img src="https://i.postimg.cc/zf7MT4q9/istockphoto-1289318271-170667a.jpg" alt="headphone">
+        <div class="left_ctn">
+          <p>밝은 내는 되려니와, 동산에는 인생의 때문이다. 사람은 시들어 물방아 하여도 심장의 듣는다. 품고 뭇 이상 이것은 인간이 열매를 위하여 것이다. 밥을 구하기 보는 충분히 얼마나 찬미를 아니한 이것이다. 평화스러운 꽃이 가치를 그들을 불어 품고 이상 힘있다. 무엇을 꽃이 찬미를 이것이다.</p>
         </div>
+
       </div>
-      <!-- gallery item end -->
-      <!-- gallery item start -->
-      <div class="gallery-item camera">
-        <div class="gallery-item-inner">
-          <img src="https://i.postimg.cc/vZ7QQdMP/nordwood-themes-F3-Dde-9thd8-unsplash.jpg" alt="camera">
-        </div>
-      </div>
-      <!-- gallery item end -->
-      <!-- gallery item start -->
-      <div class="gallery-item headphone">
-        <div class="gallery-item-inner">
-          <img src="https://i.postimg.cc/3xTY15HR/c-d-x-PDX-a-82obo-unsplash.jpg" alt="headphone">
-        </div>
-      </div>
-      <!-- gallery item end -->
-      <!-- gallery item start -->
-      <div class="gallery-item camera">
-        <div class="gallery-item-inner">
-          <img src="https://i.postimg.cc/PrYL89TD/patrick-dozk-Vh-Dyvh-Q-unsplash.jpg" alt="camera">
-        </div>
-      </div>
-      <!-- gallery item end -->
-      <!-- gallery item start -->
-      <div class="gallery-item headphone">
-        <div class="gallery-item-inner">
-<img src="https://i.postimg.cc/PqYyN2Nr/ervo-rocks-Zam8-Tv-Eg-N5o-unsplash.jpg" alt="headphone3">
-        </div>
-      </div>
-      <!-- gallery item end -->
-    </div>
+
+      <div class="right_side">
+        <div class="right_ctn">
+           
+          <%= render 'banners/header' %> 
+          <h1>Banners // <%= link_to 'New Banner', new_banner_path %></h1>
+
+            <section class="gallery">
+              <div class="container">
+                <div class="gal_row">
+                  <div class="gallery-filter">
+
+                    <div class="menu-wrapper">
+                      <div class="menu-item">
+                        <span class="filter-item active" data-filter="all">All</span>
+                        <span class="filter-item" data-filter="패션">패션</span>
+                        <span class="filter-item" data-filter="뷰티">뷰티</span>
+                        <span class="filter-item" data-filter="식품">식품</span>
+                        <span class="filter-item" data-filter="주방용품">주방용품</span>
+                        <span class="filter-item" data-filter="생활용품">생활용품</span>
+                        <span class="filter-item" data-filter="홈인테리어">홈인테리어</span>
+                        <span class="filter-item" data-filter="가전디지털">가전디지털</span>
+                        <span class="filter-item" data-filter="스포츠">스포츠</span>
+                        <span class="filter-item" data-filter="자동차용품">자동차용품</span>
+                        <span class="filter-item" data-filter="취미">취미</span>
+                        <span class="filter-item" data-filter="문구">문구</span>
+                        <span class="filter-item" data-filter="반려동물용품">반려동물용품</span>
+                        <span class="filter-item" data-filter="헬스">헬스</span>
+                      </div> 
+                      <span class="pointer left-pointer dis">
+                        <i class="fa fa-chevron-left"></i>
+                      </span>
+                      <span class="pointer right-pointer">
+                        <i class="fa fa-chevron-right"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gal_row">
+                  <!-- gallery item start -->
+                  <% @banners.each do |banner| %>
+                    <a href="/posts/hashtag/<%= banner.b_categories %>">
+                      <div class="clearfix gallery-item <%= banner.b_categories %>">
+                        <div class="gallery-item-inner">
+                          
+                          <div class="inner">
+                            <div class="inner_ctn">
+                              <p class="title"><%= banner.b_title %></p>
+                              <p>September 10th, 2022</p>
+                              <!-- <p>카테고리:<%= banner.b_categories %></p> -->
+                              <!-- <p><%= banner.b_hashtag %></p> -->
+                              <div class="admin_panner">
+                                <%= link_to 'Show', banner %>
+                                <%= link_to 'Edit', edit_banner_path(banner) %>
+                                <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="img_box">
+                            <img src="<%= banner.b_image %>" alt="<%= banner.b_title %>">
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </a>
+                  <% end %>
+                  <!-- gallery item end -->
+                </div>
+              </div>
+            </section>
+
+            <!-- <% pagy_nav(@pagy) %> -->
+
+
+
+
+        </div><!-- End of right_ctn -->
+
+      </div><!-- End of left_side -->
+    </div><!-- End of content_box -->
+
   </div>
-</section>
-
-<%== pagy_nav(@pagy) %>
-
+</div>
 
 <%= javascript_pack_tag 'banner_filter' %>
-
-<!--
-  * Note
-  - https://codepen.io/Kumar-Ankit56/pen/JjrNgNJ
--->
-
-
-
+<%= javascript_pack_tag 'scroll_menu' %>

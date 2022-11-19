@@ -17,7 +17,12 @@ hashtag = ["#패션", "#뷰티", "#식품", "#주방용품", "#생활용품", "#
 categories = ["패션", "뷰티", "식품", "주방용품", "생활용품", "홈인테리어", "가전디지털"]
 pct = ["10", "20", "30", "40", "50", "60", "70", "80", "90"]
 ratings = ["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"]
-
+ratings_codes = ["30", "35", "40", "45", "50"]
+evaluation = ["92", "86", "73", "61", "53", "40", "32", "21"]
+eva_title = ["title_01", "title_02", "title_03", "title_04", "title_05", "title_06", "title_07", "title_08"]
+doughnut = ["90", "85", "80", "75", "70", "65", "60", "55", "50", "45", "40", "35", "30", "25", "20", "15", "10", "5"]
+rocket =["yes"]
+info = ["인포메이션_01", "인포메이션_02", "인포메이션_03", "인포메이션_04", "인포메이션_05", "인포메이션_06", "인포메이션_07", "인포메이션_08"]
 
 20.times do 
 
@@ -31,10 +36,39 @@ ratings = ["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"]
     hashtag: hashtag.sample,
     # ratings: Faker::Number.between(from: 1, to: 5),
     ratings: ratings.sample,
+    ratings_codes: ratings_codes.sample,
     reviews: Faker::Number.between(from: 1, to: 10000),
     body: Faker::Name.name,
     pct: pct.sample,
-    categories: categories.sample
+    categories: categories.sample,
+    eva_10: evaluation.sample,
+    eva_11: evaluation.sample,
+    eva_12: evaluation.sample,
+    eva_20: evaluation.sample,
+    eva_21: evaluation.sample,
+    eva_22: evaluation.sample,
+    eva_30: evaluation.sample,
+    eva_31: evaluation.sample,
+    eva_32: evaluation.sample,
+    eva_40: evaluation.sample,
+    eva_41: evaluation.sample,
+    eva_42: evaluation.sample,
+    eva_title_01: eva_title.sample,
+    eva_title_02: eva_title.sample,
+    eva_title_03: eva_title.sample,
+    eva_title_04: eva_title.sample,
+    doughnut_01: doughnut.sample,
+    doughnut_02: doughnut.sample,
+    doughnut_03: doughnut.sample,
+    doughnut_04: doughnut.sample,
+    doughnut_05: doughnut.sample,
+    rocket: rocket,
+    info_01: info.sample,
+    info_02: info.sample,
+    info_03: info.sample,
+    info_04: info.sample,
+    info_05: info.sample
+
     )
 
   posts.save

@@ -1,18 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+  <div class="wrap">
 
-<p><strong>타이틀:</strong><%= @post.title %></p>
-<p><strong>이미지:</strong><img src="<%= @post.image %>"></p>
-<p><strong>링크:</strong><%= @post.link %></p>
-<p><strong>현재가:</strong><%= number_to_currency(@post.is_price, locale: :kr) %>원</p>
-<p><strong>할인전:</strong><%= number_to_currency(@post.was_price, locale: :kr) %>원</p>
-<p><strong>할인전:</strong><%= number_to_percentage(@post.pct, precision: 0) %></p>
-<p><strong>해시태그:</strong><%= @post.hashtag %></p>
-<p><strong>평점:</strong><%= @post.ratings %></p>
-<p><strong>리뷰:</strong><%= @post.reviews %></p>
+    <div class="content_box">
+      <div class="left_side">
+        <div class="left_ctn">
+          <p>밝은 내는 되려니와, 동산에는 인생의 때문이다. 사람은 시들어 물방아 하여도 심장의 듣는다. 품고 뭇 이상 이것은 인간이 열매를 위하여 것이다. 밥을 구하기 보는 충분히 얼마나 찬미를 아니한 이것이다. 평화스러운 꽃이 가치를 그들을 불어 품고 이상 힘있다. 무엇을 꽃이 찬미를 이것이다.</p>
+        </div>
+      </div>
 
 
+      <div class="right_side">
+        <div class="back_arrow">
+          <a href="/posts/hashtag/<%=@post.categories %>"><img src="<%=asset_path 'back.png' %>"></a>
+        </div>
+        <div class="show_ctn">
+
+          
+
+          <div class="img_box">
+            <img src="<%= @post.image %>">
+          </div>
+
+          <div class="inner">
+            <div class="inner_ctn">
+              <p class="product_title"><%= @post.title %></p>
+
+              <!-- <p><%= @post.hashtag %></p> -->
+
+              <div class="pricing">
+                <% discount_rate = 0 %>
+                <% discount_rate =  (@post.was_price.to_f - @post.is_price.to_f) / @post.was_price.to_f * 100 %>
+                
+                <span class="was_price"><%= number_to_currency(@post.was_price, locale: :kr) %>원</span>
+                <span class="is_price"><%= number_to_currency(@post.is_price, locale: :kr) %>원</span>
+                <span class="pct"><%= number_to_percentage(discount_rate, precision: 0) %> OFF</span>
+                
+              </div>
+
+              <div class="rating_card">
+                <% if @post.ratings_codes == 50 %>
+                    <div class="rating_box">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i> <span>(<%= @post.reviews %>)</span>
+                    </div>
+                  <% elsif @post.ratings_codes == 45 %>
+                    <div class="rating_box">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_half</i> <span>(<%= @post.reviews %>)</span>
+                    </div>
+                  <% elsif @post.ratings_codes == 40 %>
+                    <div class="rating_box">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i> <span>(<%= @post.reviews %>)</span>
+                    </div>
+                  <% elsif @post.ratings_codes == 35 %>
+                    <div class="rating_box">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_half</i><i class="material-icons">star_border</i> <span>(<%= @post.reviews %>)</span>
+                    </div>
+                  <% elsif @post.ratings_codes == 30 %>
+                    <div class="rating_box">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i><i class="material-icons">star_border</i> <span>(<%= @post.reviews %>)</span>
+                    </div>
+                  <% end %>
+              </div>
+            </div><!-- inner_ctn -->
+
+            <div class="tabs_box">
+              <%= render 'posts/tabs' %>
+            </div><!-- tabs_box -->
+
+          </div><!-- inner -->
+
+          <div class="btn">
+            <a href="#n">지금 사러 가기</a>
+          </div>
+
+          <%= link_to 'Edit', edit_post_path(@post) %> |
+          <%= link_to 'Back', posts_path %>
+        
+        </div><!-- End of show_ctn -->
+
+      </div><!-- End of right_side -->
+    </div><!-- End of content_box -->
+
+  </div>
+</div>
 
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<script type="text/javascript">
+  // Produces width of .barChart
+  $(document).ready(function() {
+    $('.graph-bar').each(function() {
+       var dataWidth = $(this).data('value');
+       $(this).css("width", dataWidth + "%");
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+

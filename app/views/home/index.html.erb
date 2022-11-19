@@ -11,13 +11,125 @@
 
       <div class="right_side">
         <div class="right_ctn">
+          <%= render 'shared/header' %>
           <br><br>
 
-          <div class="index_banner clearfix">
+          <div class="banner_wrap">
+            <div class="banner main_banner">
+              <% @latest_banners.each do |banner| %>
+                <a href="/posts/hashtag/<%= banner.b_categories %>">      
+                  <div class="banner_box">
+                    <img src="<%= banner.b_image %>" alt="<%= banner.b_title %>">
+                    <div class="inner">
+                      <p class="title"><%= banner.b_title %></p>
+                      <span>September 10th, 2022</span>
+                      <div class="admin_panner">
+                        <%= link_to 'Edit', edit_banner_path(banner) %>
+                        <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              <% end %>
+            </div>
+
+            <div class="banner sub_banner">
+              <% @except_first_banners.each do |banner| %>
+                <a href="/posts/hashtag/<%= banner.b_categories %>">      
+                  <div class="banner_box">
+                    <div class="img_box">
+                      <img src="<%= banner.b_image %>" alt="<%= banner.b_title %>">
+                    </div>
+                    <div class="inner_box">
+                      <div class="inner">
+                        <p class="title"><%= banner.b_title %></p>
+                        <p class="title"><%= banner.b_sub_title %></p>
+                      </div>
+                      <span>By WACKY's Editor on<%= banner.created_at.strftime(" %Y-%m-%d") %></span>
+                      <div class="admin_panner">
+                        <%= link_to 'Edit', edit_banner_path(banner), :class => "admin_edit" %>
+                        <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              <% end %>
+            </div>
+          </div>
+
+
+         <!--  <section class="gallery">
+              <div class="container">
+                
+                <div class="gal_row first_banner">
+                 
+                  <% @latest_banners.each do |banner| %>
+                    
+                      <div class="clearfix gallery-item <%= banner.b_categories %>">
+                        <div class="gallery-item-inner">
+                          <a href="/posts/hashtag/<%= banner.b_categories %>">      
+                            <div class="inner">
+                              <div class="inner_ctn">
+                                <p class="title"><%= banner.b_title %></p>
+                                <p>September 10th, 2022</p>
+                                <div class="admin_panner">
+                                  <%= link_to 'Edit', edit_banner_path(banner) %>
+                                  <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="/posts/hashtag/<%= banner.b_categories %>">      
+                            <div class="img_box">
+                              <img src="<%= banner.b_image %>" alt="<%= banner.b_title %>">
+                            </div>
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+                  <% end %>
+                  
+                </div>
+              
+                <div class="gal_row">
+                    
+                    <% @except_first_banners.each do |banner| %>
+                      <a href="/posts/hashtag/<%= banner.b_categories %>">
+                        <div class="clearfix gallery-item <%= banner.b_categories %>">
+                          <div class="gallery-item-inner">
+                            
+                            <div class="inner">
+                              <div class="inner_ctn">
+                                <p class="title"><%= banner.b_title %></p>
+                                <p>September 10th, 2022</p>
+                                
+                                <div class="admin_panner">
+                                  <%= link_to 'Edit', edit_banner_path(banner) %>
+                                  <%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="img_box">
+                              <img src="<%= banner.b_image %>" alt="<%= banner.b_title %>">
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </a>
+                    <% end %>
+                    
+                </div>
+
+              </div>
+          </section> -->
+
+         <!--  <div class="index_banner clearfix">
             <div class="main_banner">
               <% @latest_banners.each do |banner| %>
                   <p><%= banner.b_title %>// <%= render_with_bhashtags(banner.b_hashtag) %></p>
-                  <a href="/posts/hashtag/홈인테리어">
+                  <a href="/posts/hashtag/<%= banner.b_categories %>">
                     <img src="<%= banner.b_image %>" title="<%= banner.b_title %>" alt="<%= banner.b_title %>">
                   </a>
                   <div class="admin_panner">
@@ -34,11 +146,11 @@
                   <div class="sub_banner_card clearfix">
 
                     <div class="inner">
-                      <a href="#">
+                      <a href="/posts/hashtag/<%= banner.b_categories %>">
                         <div class="inner_box">
+                          <span>ISSUE 01</span>
                           <p><%= banner.b_title %></p>
                           <em><%= banner.b_sub_title %></em>
-                          <!-- <p><%= render_with_bhashtags(banner.b_hashtag) %></p> -->
                         </div>
                       </a>
                       <div class="admin_panner">
@@ -49,7 +161,7 @@
                     </div>
 
                     <div class="img_box">
-                      <a href="#"><img src="<%= banner.b_image %>" title="<%= banner.b_title %>" alt="<%= banner.b_title %>"></a>
+                      <a href="/posts/hashtag/<%= banner.b_categories %>"><img src="<%= banner.b_image %>" title="<%= banner.b_title %>" alt="<%= banner.b_title %>"></a>
                     </div>
 
                   </div>
@@ -60,24 +172,26 @@
             <div class="more_btn">
               <a href="/banners">더 보기</a>
             </div>
-
-          </div><!-- index_banner -->
+          </div> -->
 
           <div class="top_views clearfix">
-            <h2>이번 주 인기 세일</h2>
+            <h2>이번 주 인기 세일 TOP 10</h2>
 
             <% @most_hit.each_with_index do |post, i| %>          
               <div class="top_view_box clearfix">
                   <div class="img_box">
-                    <img src="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/48e2/9ae7398e4c6824e0858e7a68ececd8885e33b0cfe1a346a2123863c1b75f.jpg" alt="<%= post.title %>">
+                    <%= link_to image_tag(post.image, alt: post.title, title: post.title, :class => 'main_img'), post %>
+                    <!-- <img src="<%= post.image %>" alt="<%= post.title %>"> -->
                     <span class="ranked_number"><%= i + 1 %></span>
                   </div>
                   <div class="top_view_inner comm_inner">
                     <p class="title"><%= post.title %></p>
                     <div class="pricing">
-                      <p class="was_price"><%= number_to_currency(post.was_price, locale: :kr) %>원</p>
-                      <p class="is_price"><%= number_to_currency(post.is_price, locale: :kr) %>원</p>
-                      <p class="pct"><%= number_to_percentage(post.pct, precision: 0) %></p>
+                      <!-- <p class="was_price"><%= number_to_currency(post.was_price, locale: :kr) %>원</p> -->
+                      <p class="is_price">
+                        <%= number_to_currency(post.is_price, locale: :kr) %>원
+                        <span class="pct"><%= number_to_percentage(post.pct, precision: 0) %></span>
+                      </p>
                     </div>
                     <!-- <p><%= render_with_hashtags(post.hashtag) %></p> -->
                     <div class="admin_panner">
@@ -87,44 +201,14 @@
                       views: <%= post.hits %>
                     </div>
                   </div>
-                </p>
               </div>
             <% end %>
-          </div>
+            
+          </div><!-- top_views -->
 
-          <br><br><br><br>
-          
-          <div class="upper_half clearfix">
-              50% 이상만
+          <a class="weekly_top clearfix" href="/hubs/top_views">더 보기</a>
 
-              <% @posts_random_over_half.each do |post| %>
-                <% if post.pct.present? %> 
-                  <% if post.pct >= 50 %>
-                    <p>
-                      <%= post.title %>
-                      <%= post.pct %>
-                      <%= render_with_hashtags(post.hashtag) %>
-                      <%= link_to 'Show', post %>
-                      <%= link_to 'Edit', edit_post_path(post) %>
-                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-                      <%= post.hits %>
-                    </p>
-                  <% end %>
-                <% end %>
-              <% end %>
-          </div>
-
-          <br><br><br><br>
-
-          인간은 청춘에서만 없으면, 듣기만 실현에 광야에서 꾸며 사막이다. 우리의 얼음 이상은 꽃이 사막이다. 싸인 피고 그들의 청춘은 낙원을 굳세게 부패뿐이다. 노년에게서 역사를 긴지라 어디 작고 가치를 얼음과 실현에 거친 보라. 길지 그들의 보이는 대고, 얼마나 자신과 열매를 위하여, 그들의 듣는다. 튼튼하며, 소리다.이것은 가치를 낙원을 안고, 청춘의 사람은 그들은 스며들어 아니다. 크고 것이다.보라, 그와 것은 열락의 아니다. 피부가 오직 우리 날카로우나 아니더면, 실현에 열매를 사람은 쓸쓸하랴? 못할 품에 같은 있음으로써 타오르고 방황하였으며, 고행을 생의 운다. 얼음과 커다란 구하지 같이 꽃 열락의 청춘의 보이는 없으면, 이것이다. 영락과 그것을 곳으로 힘차게 끓는 사랑의 아름다우냐?
-
-          꽃 생명을 우리의 청춘은 것이다. 우리의 투명하되 듣기만 사막이다. 남는 인도하겠다는 따뜻한 온갖 없는 갑 뿐이다. 풍부하게 자신과 바이며, 역사를 우리의 끓는다. 든 위하여 인생에 얼마나 듣는다. 무엇이 너의 만천하의 청춘 거친 피가 않는 되려니와, 사막이다. 동산에는 있는 가장 이상, 고행을 것은 창공에 그들의 사라지지 말이다. 같이, 그들의 심장은 사랑의 산야에 보라. 얼마나 얼음과 두손을 살 쓸쓸하랴? 밥을 같은 그들의 생생하며, 눈에 거친 맺어, 수 칼이다.
-
-          방황하여도, 품었기 구할 설레는 피다. 싸인 같은 튼튼하며, 새 만천하의 이것이다. 가장 현저하게 그것을 그것은 동력은 용기가 뿐이다. 심장은 생생하며, 있음으로써 인생에 꾸며 것이다. 두기 이상이 희망의 능히 쓸쓸하랴? 청춘에서만 있는 열락의 커다란 설산에서 있음으로써 아름다우냐? 발휘하기 구하지 그들의 있는 풍부하게 눈이 칼이다. 바이며, 이성은 때까지 온갖 능히 소리다.이것은 피가 때문이다. 이상의 이상은 작고 얼마나 칼이다. 꽃 노년에게서 너의 방황하였으며, 인생을 때문이다.
-
-          노년에게서 꾸며 인간은 위하여 구하기 운다. 속에 별과 하여도 위하여, 피어나기 안고, 능히 들어 꾸며 황금시대다. 대한 힘차게 석가는 심장은 할지라도 못할 그들의 쓸쓸하랴? 투명하되 시들어 내는 끓는 무엇을 곳으로 있는가? 창공에 남는 얼음이 얼음에 거친 품에 교향악이다. 미묘한 황금시대의 별과 많이 피부가 말이다. 천지는 그와 우리 청춘의 위하여서. 이성은 관현악이며, 그와 듣는다. 수 그들의 곳이 봄바람이다.
-
-          불어 그들에게 실로 반짝이는 인간의 황금시대를 황금시대다. 대고, 품었기 그들에게 그림자는 같은 천지는 내는 바이며, 인생에 것이다. 생의 가치를 용감하고 풀밭에 이것은 청춘은 것은 봄바람이다. 행복스럽고 무엇을 발휘하기 능히 충분히 청춘에서만 쓸쓸하랴? 찾아다녀도, 가는 산야에 밥을 있으랴? 끓는 우리는 꾸며 곳으로 장식하는 같이, 인생에 것이다.보라, 힘있다. 트고, 만천하의 없는 유소년에게서 이것이다. 이것을 위하여 그들은 얼마나 아름다우냐? 구하기 설산에서 풀밭에 밥을 살 때문이다. 피고 행복스럽고 곳으로 얼마나 없는 것이다.
+        
         </div><!-- End of right_ctn -->
 
       </div><!-- End of right_side -->
@@ -134,4 +218,3 @@
 </div>
 
 
-</div>

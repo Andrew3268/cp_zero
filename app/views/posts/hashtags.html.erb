@@ -15,8 +15,13 @@
 
       <div class="right_side">
         <div class="right_ctn">
-         
-          <%= render 'posts/comparison' %>
+          <a class="back_to_home" href="/"><img src="<%=asset_path 'back.png' %>"></a>
+          <div class="where-hashtag">
+            <% if params[:name].present? %>
+            <h2 class="hashtag_label">#<%= params[:name] %></h2>
+            <% end %>
+          </div>
+          <%= render 'posts/compare' %>
 
 
         </div><!-- End of right_ctn -->
